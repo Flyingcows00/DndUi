@@ -1,5 +1,24 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        {{#link-to "encounter" class="navbar-brand" }} D&D UI {{/link-to}}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    {{#link-to "encounter" class="nav-link" }} Encounter {{/link-to}}
+                </li>
+                <li class="nav-item">
+                    {{#link-to "monsters" class="nav-link" }} Monsters {{/link-to}}
+                </li>
+                <li class="nav-item">
+                    {{#link-to "players" class="nav-link" }} Players {{/link-to}}
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="mt-4">
+        {{outlet}}
+    </div>
+</div>
