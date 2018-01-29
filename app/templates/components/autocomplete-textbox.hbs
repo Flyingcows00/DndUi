@@ -1,10 +1,5 @@
 <div class="form-group row" style="position: relative">
     <div class="col-md-4 offset-md-4">
         {{input type="text" class="form-control" id="autocomplete" placeholder="Choose a Monster..."}}
-        <div class="d-none custom-dropdown-menu" id="autocomplete-list">
-            {{#each searchResults as |item|}}
-                <span class="custom-dropdown-item" onclick={{action "chooseMonster" item}}>{{item}}</span>
-            {{/each}}
-        </div>
     </div>
 </div>

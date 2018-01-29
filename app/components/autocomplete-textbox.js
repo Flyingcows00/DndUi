@@ -1,52 +1,39 @@
 import Component from '@ember/component';
 import $ from 'jquery';
-import { schedule } from '@ember/runloop'
-import { observer } from '@ember/object';
-
+import { computed } from '@ember/object';
 export default Component.extend({
 
     data: undefined,
     searchResults: undefined,
+    dataArray: computed("data", function () {
+        let data = this.get("data");
+        if (typeof data == "string") {
+            return JSON.parse(this.get("data"));
+        }
+        return data;
+    }),
     didInsertElement() {
-        if (this.get("autofocus") == true) {
+        $("#autocomplete").autocomplete({
+            source: this.get("dataArray"),
+            delay: 100,
+            autoFocus: true,
+            minLength: 2,
+            select: (event, ui) => {
+                this.get("chooseMonster")(ui.item.value);
+                return false;
+            },
+            focus: function () {
+                return false;
+            },
+            close: function () {
+                //TODO: Why doesn't this prevent the closing of the dropdown?
+                return false;
+            }
+        });
+
+        if (this.get("autofocus")) {
             $("#autocomplete").focus();
         }
-        //Populate and show dropdown on keyup event
-        $("#autocomplete").keyup((e) => {
-            // Return on escape key press because that is handled elsewhere
-            if (e.keyCode === 27) {
-                return;
-            }
-            var search = $("#autocomplete").val();
-            if (search == "") {
-                this.set("searchResults", undefined);
-                $("#autocomplete-list").addClass("d-none");
-                return;
-            }
-            schedule('actions', () => {
-                let data = JSON.parse(this.get("data"));
-                var results = [];
-                $.each(data, function (i, item) {
-                    if (item.toLowerCase().indexOf(search.toLowerCase()) != -1) {
-                        results.push(item);
-                    }
-                })
-                this.set("searchResults", results);
-                $("#autocomplete-list").removeClass("d-none");
-            });
-        });
-        // $("body").keyup(function (e) {
-        //     //Close dropdown on escape
-        //     if (e.keyCode === 27) {
-        //         $("#autocomplete-list").addClass("d-none");
-        //     }
-        // });
-        // $("#autocomplete-list").focusout(function(){
-        //     $("#autocomplete-list").addClass("d-none");
-        // });
-        // $("#autocomplete, #autocomplete-list").focusin(function(){
-        //     $("#autocomplete-list").removeClass("d-none");
-        // });
     },
     actions: {
         chooseMonster: function (monsterName) {
