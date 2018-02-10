@@ -24,16 +24,13 @@ export default Component.extend({
             },
             focus: function () {
                 return false;
-            },
-            close: function () {
-                //TODO: Why doesn't this prevent the closing of the dropdown?
-                return false;
             }
         });
-
         if (this.get("autofocus")) {
             $("#autocomplete").focus();
         }
+        //For easy development, uncomment this line
+        // this.get("chooseMonster")("Aboleth");
     },
     actions: {
         chooseMonster: function (monsterName) {

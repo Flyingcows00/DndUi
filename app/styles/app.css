@@ -4,3 +4,53 @@
     /* prevent horizontal scrollbar */
     overflow-x: hidden;
 }
+
+.monospace {
+    font-family: monospace;
+    font-size: 1.25rem;
+}
+
+.card{
+    height:fit-content; 
+}
+
+.card-medium {
+    max-width: 380px;
+    min-width: 380px;
+}
+
+.card-small {
+    max-width: 225px;
+    min-width: 225px;
+}
+
+.accordion-card {
+    min-width: 430px;
+}
+
+.accordion-header {
+    cursor: pointer;
+}
+
+.icon {
+    width:20px;
+    height:20px;
+}
+
+.level {
+    display:inline-block;
+    width:30px;
+    font-size: 1.15rem;
+}
+
+.name {
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.text-label {
+    font-size: .9rem;
+}
+
+.text-header { 
+    font-size: 1.25rem;
+}
