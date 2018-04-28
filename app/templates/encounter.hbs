@@ -5,65 +5,7 @@
     <div class="col-sm"></div>
     <div id="accordion" class="col-sm-8">
         {{#each-in fighters as |fighter data|}}
-        <div class="card accordion-card">
-            <div class="card-header accordion-header" data-toggle="collapse" data-target="#collapse{{fighter}}" aria-expanded="false" aria-controls="collapse{{fighter}}">
-                <span class="name text-header"> {{data.name}} |</span>
-                <span class="font-weight-light">{{fighter}}</span>
-            </div>
-            <div id="collapse{{fighter}}" class="collapse" aria-labelledby="heading{{fighter}}" data-parent="#accordion">
-                <div class="card-body">
-                    <div class="card-deck">
-                        <div class="card card-medium">
-                            <div class="card-header">Abilities</div>
-                            <div class="card-body">
-                                <div class="row m-0">
-                                    <div class="col-7"></div>
-                                    <div class="col text-center font-weight-bold font-italic">Mod</div>
-                                    <div class="col text-center font-weight-bold font-italic">Save</div>
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    {{#each abilities as | ability |}}
-                                    <li class="list-group-item pt-1 pb-1">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <img class="icon" src="/assets/images/{{ability}}.png">
-                                                <span class="level text-center">{{get data.abilities (uppercase ability)}}</span>
-                                                <span class="name text-label">{{ability}}</span>
-                                            </div>
-                                            <div class="col monospace text-center">{{get-ability-mod (get data.abilities (uppercase ability))}}</div>
-                                            <div class="col monospace text-center">+{{get data.savingThrows (uppercase ability)}}</div>
-                                        </div>
-                                    </li>
-                                    {{/each}}
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card card-small">
-                            <div class="card-header">Skills</div>
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    {{#each skills as | skill |}}
-                                        {{#if (not-eq (get data.skills (uppercase-underscore skill)) 0)}}
-                                            <li class="list-group-item pt-1 pb-1">
-                                                <div class="row">
-                                                    <div>
-                                                        <span class="level"> {{get data.skills (uppercase-underscore skill)}} </span>
-                                                    </div>
-                                                    <div class="col">
-                                                        <span class="name text-label">{{skill}}</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        {{/if}}
-                                    {{/each}}
-                                </ul>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+          {{monster-card name=fighter data=data}}
         {{/each-in}}
     </div>
     <div class="col-sm"></div>

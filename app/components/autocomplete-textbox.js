@@ -30,7 +30,7 @@ export default Component.extend({
             $("#autocomplete").focus();
         }
         //For easy development, uncomment this line
-        // this.get("chooseMonster")("Aboleth");
+        this.get("chooseMonster")("Aboleth");
     },
     actions: {
         chooseMonster: function (monsterName) {

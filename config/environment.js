@@ -4,7 +4,7 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'dndui',
     environment,
-    rootURL: '/',
+    rootURL: '/dnd-tools',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {

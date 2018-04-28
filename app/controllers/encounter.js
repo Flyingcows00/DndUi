@@ -1,12 +1,9 @@
 import Controller from '@ember/controller';
 import $ from 'jquery';
-import constants from '../Constants'
 
 export default Controller.extend({
 
     fighters: null,
-    abilities: constants.abilities,
-    skills: constants.skills,
     actions: {
         addMonster(monster) {
             // get all current monsters
