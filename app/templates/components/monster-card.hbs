@@ -5,10 +5,10 @@
             <span class="font-weight-light small">{{name}}</span>
         </div>
         <div class="float-right" style="width:33%">
-          <div class="progress" style="border:1px solid #ABB2B9">
-              <div class="progress-bar progress-bar-striped {{healthBarClass}}" role="progressbar" style="{{healthBarWidth}}"></div>
-          </div>
-          <div id="condition-{{name}}" class="condition-box mt-1"></div>
+            <div class="progress" style="border:1px solid #ABB2B9">
+                <div class="progress-bar progress-bar-striped {{healthBarClass}}" role="progressbar" style="{{healthBarWidth}}"></div>
+            </div>
+            <div id="condition-{{name}}" class="condition-box mt-1"></div>
         </div>
     </div>
     <div id="collapse{{name}}" class="collapse" aria-labelledby="heading{{name}}" data-parent="#accordion">
@@ -61,7 +61,18 @@
                 <div class="card card-medium">
                     <div class="card-header">Health</div>
                     <div class="card-body">
-
+                        <div class="row align-items-center">
+                            <div class="col-2 border p-2" align="middle">
+                                <span>{{data.currentHitPoints}}</span>
+                                <hr class="mt-1 mb-1">
+                                <span>{{data.hitPoints}}</span>
+                            </div>
+                            <div class="col">
+                                <i class="material-icons material-icon-button">add</i>
+                                <span class="">asdf</span>
+                                <i class="material-icons material-icon-button">remove</i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

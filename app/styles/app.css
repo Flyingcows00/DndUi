@@ -54,3 +54,13 @@
 .text-header { 
     font-size: 1.25rem;
 }
+
+.border {
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 10%;
+}
+
+.material-icon-button {
+    border: 1px solid black;
+    padding:6px
+}

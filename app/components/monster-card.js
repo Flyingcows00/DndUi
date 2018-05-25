@@ -1,6 +1,8 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import constants from '../Constants'
+import constants from '../Constants';
+import { htmlSafe } from '@ember/string';
+import $ from 'jquery';
 
 export default Component.extend({
 
@@ -13,7 +15,7 @@ export default Component.extend({
     return data.currentHitPoints / data.hitPoints * 100;
   }),
   healthBarWidth: computed('currentHitPointsPercentage', function(){
-    return Ember.String.htmlSafe("width:" + this.get('currentHitPointsPercentage') + "%");
+    return htmlSafe("width:" + this.get('currentHitPointsPercentage') + "%");
   }),
   healthBarClass: computed('currentHitPointsPercentage', function(){
     let currentHitPoints = this.get('currentHitPointsPercentage');
@@ -26,6 +28,9 @@ export default Component.extend({
   }),
   didReceiveAttrs(){
     this.get('data').currentHitPoints = this.get('data').hitPoints;
+  },
+  didInsertElement(){
+    $("#spinner" + this.get('name')).spinner();
   }
 
 });
