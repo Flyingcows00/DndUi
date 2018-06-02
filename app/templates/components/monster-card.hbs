@@ -5,10 +5,12 @@
             <span class="font-weight-light small">{{name}}</span>
         </div>
         <div class="float-right" style="width:33%">
+            <div id="condition-{{name}}" class="condition-box mt-1">
+
+            </div>
             <div class="progress" style="border:1px solid #ABB2B9">
                 <div class="progress-bar progress-bar-striped {{healthBarClass}}" role="progressbar" style="{{healthBarWidth}}"></div>
             </div>
-            <div id="condition-{{name}}" class="condition-box mt-1"></div>
         </div>
     </div>
     <div id="collapse{{name}}" class="collapse" aria-labelledby="heading{{name}}" data-parent="#accordion">
@@ -58,6 +60,7 @@
                         </ul>
                     </div>
                 </div>
+                {{!--
                 <div class="card card-medium">
                     <div class="card-header">Health</div>
                     <div class="card-body">
@@ -74,7 +77,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
