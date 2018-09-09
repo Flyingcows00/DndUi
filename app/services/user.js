@@ -1,5 +1,5 @@
 import Service from '@ember/service';
-import { set } from '@ember/object';
+import { set, get } from '@ember/object';
 
 export default Service.extend({
 
@@ -9,6 +9,11 @@ export default Service.extend({
     setUser(username, admin) {
         set(this, "user", username);
         set(this, "admin", admin);
+    },
+    
+    setUser(username, admin) {
+        set(this, 'username', username);
+        set(this, 'admin', admin);
     }
 
 });

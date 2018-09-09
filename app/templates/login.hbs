@@ -1,0 +1,15 @@
+<div class="row justify-content-center">
+    <div class="col-lg-4 mt-5">
+        <form>
+            <div class="form-group">
+                <label for="usernameSelect">Who are you?</label>
+                <select class="form-control" id="usernameSelect" onchange= {{action 'selectUser' value="target.value"}}>
+                    <option></option>
+                    {{#each model as |user|}}
+                        <option class="option">{{user.username}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </form>
+    </div>
+</div>

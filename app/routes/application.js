@@ -4,11 +4,14 @@ import { get } from '@ember/object';
 
 export default Route.extend({
 
-    user: service('user'),
+    userService: service('user'),
 
     beforeModel(transition) {
-        // get(this, "store").findAll('user');
-        // console.log(get(this, 'user').username);
+        let users = get(this, 'store').peekAll('user');
+        let currentUser = get(this, 'userService');
+        if (0 === users.content.length || undefined === currentUser) {
+           this.transitionTo('login');
+        }
     }
 
 });

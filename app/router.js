@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('encounter', function() {
     this.route('builder')
   });
+  this.route('login');
 });
 
 export default Router;
