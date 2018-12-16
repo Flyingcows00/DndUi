@@ -19,7 +19,7 @@ export default Component.extend({
             autoFocus: true,
             minLength: 2,
             select: (event, ui) => {
-                this.get("chooseMonster")(ui.item.value);
+                this.get("performAction")(ui.item.value);
                 return false;
             },
             focus: function () {
@@ -29,12 +29,10 @@ export default Component.extend({
         if (this.get("autofocus")) {
             $("#autocomplete").focus();
         }
-        //For easy development, uncomment this line
-        this.get("chooseMonster")("Aboleth");
     },
     actions: {
-        chooseMonster: function (monsterName) {
-            this.get("chooseMonster")(monsterName);
+        performAction: function (item) {
+            this.get("performAction")(item);
         }
     }
 

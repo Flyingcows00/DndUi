@@ -13,6 +13,7 @@ Router.map(function() {
     this.route('builder')
   });
   this.route('login');
+  this.route('home');
 });
 
 export default Router;

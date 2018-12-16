@@ -17,7 +17,7 @@ export default Controller.extend({
             let users = get(this, 'model');
             let user = users.find(user => user.id === username).get('data');
             get(this, 'userService').setUser(user, rememberMe);
-            this.transitionToRoute('encounter');
+            this.transitionToRoute('home');
 
         }
     }

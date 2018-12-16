@@ -8,7 +8,7 @@ export default Route.extend({
     beforeModel() {
         let username = get(this, 'userService').get('username');
         if(username) {
-            this.transitionTo('encounter');
+            this.transitionTo('hojme');
         }
     },
     model() {
@@ -24,7 +24,7 @@ export default Route.extend({
             let user = model.find(user => user.id === username);
             if (user) {
                 get(this, 'userService').setUser(user, false);
-                this.transitionTo('encounter');
+                this.transitionTo('home');
             } else {
                 localStorage.removeItem('user');
             }
