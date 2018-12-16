@@ -2,13 +2,28 @@
     <div class="col-lg-4 mt-5">
         <form>
             <div class="form-group">
-                <label for="usernameSelect">Who are you?</label>
-                <select class="form-control" id="usernameSelect" onchange= {{action 'selectUser' value="target.value"}}>
-                    <option></option>
-                    {{#each model as |user|}}
+                <div class="row">
+                    <label for="usernameSelect">Who are you?</label>
+                    <select class="form-control" id="usernameSelect">
+                        <option></option>
+                        {{#each model as |user|}}
                         <option class="option">{{user.username}}</option>
-                    {{/each}}
-                </select>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="row mt-2">
+                    <div class="col">
+                        <div class="form-check">
+                            {{input class="form-check-input" type="checkbox" checked=rememberMe id="remember-me"}}
+                            <label class="form-check-label" for="remember-me">
+                                Remember Me
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col" align="right">
+                        <input type="button" class="btn btn-primary" {{action "selectUser"}} value="Sign In"/>
+                    </div>
+                </div>
             </div>
         </form>
     </div>

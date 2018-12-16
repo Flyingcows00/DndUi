@@ -6,11 +6,10 @@ export default Route.extend({
 
     userService: service('user'),
 
-    beforeModel(transition) {
-        let users = get(this, 'store').peekAll('user');
-        let currentUser = get(this, 'userService');
-        if (0 === users.content.length || undefined === currentUser) {
-           this.transitionTo('login');
+    beforeModel() {
+        let currentUser = get(this, 'userService').get('username');
+        if (undefined === currentUser) {
+            this.transitionTo('login');
         }
     }
 
