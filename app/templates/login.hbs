@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
     <div class="col-lg-4 mt-5">
-        <form>
+        <form onsubmit={{action 'submitForm'}}>
             <div class="form-group">
                 <div class="row">
                     <label for="usernameSelect">Who are you?</label>
@@ -23,6 +23,13 @@
                     <div class="col" align="right">
                         <input type="button" class="btn btn-primary" {{action "selectUser"}} value="Sign In"/>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" align="right">
+                    {{input type="checkbox" id="remember-me-checkbox" checked=rememberMe}}
+                    <label for="remember-me-checkbox">Remember Me</label>
+                    <button class="btn btn-primary px-4 ml-4">Login</button>
                 </div>
             </div>
         </form>

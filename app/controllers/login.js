@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 import { get } from '@ember/object';
 import $ from 'jquery';
 
+
 export default Controller.extend({
     userService: service('user'),
     rememberMe: false,
@@ -18,7 +19,6 @@ export default Controller.extend({
             let user = users.find(user => user.id === username).get('data');
             get(this, 'userService').setUser(user, rememberMe);
             this.transitionToRoute('home');
-
         }
     }
 });
