@@ -1,6 +1,7 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { get } from '@ember/object';
+import Constants from '../Constants';
 
 export default Route.extend({
 
@@ -8,7 +9,7 @@ export default Route.extend({
     beforeModel() {
         let username = get(this, 'userService').get('username');
         if(username) {
-            this.transitionTo('hojme');
+            this.transitionTo('home');
         }
     },
     model() {
@@ -19,14 +20,14 @@ export default Route.extend({
         return users;
     },
     afterModel(model) {
-        let username = localStorage.getItem('user');
+        let username = localStorage.getItem(Constants.localStorage);
         if(username) {
             let user = model.find(user => user.id === username);
             if (user) {
                 get(this, 'userService').setUser(user, false);
                 this.transitionTo('home');
             } else {
-                localStorage.removeItem('user');
+                localStorage.removeItem(Constants.localStorage);
             }
         }
     },

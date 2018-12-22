@@ -7,22 +7,9 @@
                     <select class="form-control" id="usernameSelect">
                         <option></option>
                         {{#each model as |user|}}
-                        <option class="option">{{user.username}}</option>
+                            <option class="option">{{user.username}}</option>
                         {{/each}}
                     </select>
-                </div>
-                <div class="row mt-2">
-                    <div class="col">
-                        <div class="form-check">
-                            {{input class="form-check-input" type="checkbox" checked=rememberMe id="remember-me"}}
-                            <label class="form-check-label" for="remember-me">
-                                Remember Me
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col" align="right">
-                        <input type="button" class="btn btn-primary" {{action "selectUser"}} value="Sign In"/>
-                    </div>
                 </div>
             </div>
             <div class="row">

@@ -1,5 +1,6 @@
 import Service from '@ember/service';
 import { set } from '@ember/object';
+import Constants from '../Constants';
 
 export default Service.extend({
 
@@ -14,7 +15,7 @@ export default Service.extend({
         set(this, 'firstName', user.firstName);
         set(this, 'lastName', user.lastName);
         if(rememberMe) {
-            localStorage.setItem('user', user.username);
+            localStorage.setItem(Constants.localStorage, user.username);
         }
     }
 

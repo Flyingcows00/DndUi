@@ -9,7 +9,7 @@ export default Controller.extend({
     rememberMe: false,
 
     actions: {
-        selectUser() {
+        submitForm() {
             let username = $("#usernameSelect option:selected").text();
             let rememberMe = get(this, 'rememberMe');
             if(!username) {
